@@ -2,10 +2,10 @@ version: "3"
 services: 
    weechat: 
       build: .
-      container_name: weechat
+      container_name: docker-weechat-otr
       stdin_open: true
       tty: true
       ports:
-         - "45123:45123"
+         # Add ports here for relay use
       volumes:
          - "/path/to/host/.weechat:/home/weechat/.weechat"
