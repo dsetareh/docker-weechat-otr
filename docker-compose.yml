@@ -1,0 +1,11 @@
+version: "3"
+services: 
+   weechat: 
+      build: .
+      container_name: weechat
+      stdin_open: true
+      tty: true
+      ports:
+         - "45123:45123"
+      volumes:
+         - "/path/to/host/.weechat:/home/weechat/.weechat"
