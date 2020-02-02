@@ -2,10 +2,24 @@ version: "3"
 services: 
    weechat: 
       build: .
-      container_name: docker-weechat-otr
+      image: docker-weechat-otr
+      container_name: weechat
       stdin_open: true
       tty: true
       ports:
-         # Add ports here for relay use
+        - "host relay port:container relay port"
+      expose:
+        - "urlserver.py port"
       volumes:
          - "/path/to/host/.weechat:/home/weechat/.weechat"
+      enviroment:
+         VIRTUAL_HOST: domain.name
+         VIRTUAL_PORT: urlserver.py port
+         LETSENCRYPT_HOST: domain.name
+         LETSENCRYPT_EMAIL: email@address
+
+networks:
+  default:
+    external:
+      name: nginx-proxy
+
