@@ -23,6 +23,7 @@ ENV         LC_ALL en_US.UTF-8
 ENV         LANGUAGE en_US.UTF-8
 ENV         C en_US.UTF-8
 ENV         TERM xterm-256color
+ENV         TZ America/New_York
 
 RUN         apt-key adv --keyserver hkps://keys.openpgp.org --recv-keys 11E9DE8848F2B65222AA75B8D1820DB22A11534E
 RUN         echo "deb https://weechat.org/ubuntu eoan main" | tee /etc/apt/sources.list.d/weechat.list
