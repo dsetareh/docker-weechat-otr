@@ -12,7 +12,7 @@ services:
         - "urlserver.py port"
       volumes:
          - "/path/to/host/.weechat:/home/weechat/.weechat"
-      enviroment:
+      environment:
          VIRTUAL_HOST: domain.name
          VIRTUAL_PORT: urlserver.py port
          LETSENCRYPT_HOST: domain.name
