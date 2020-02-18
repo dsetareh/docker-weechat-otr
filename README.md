@@ -1,5 +1,5 @@
 ## docker-weechat-otr
-weechat 2.7 + otr running in docker
+weechat-dev 2.8 + otr running in docker
 #### why use this
 the last otr-weechat image i can find is 3 years old, and all the ones I tried based off alpine had visual glitches when attaching
 

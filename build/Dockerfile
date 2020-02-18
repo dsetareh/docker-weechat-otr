@@ -1,5 +1,5 @@
 # weechat with otr
-FROM        ubuntu:19.10
+FROM        ubuntu:20.04
 
 # fix env variables
 ENV         TERM xterm-256color
@@ -28,16 +28,16 @@ ENV         C en_US.UTF-8
 # add weechat repo
 RUN         apt-key adv --keyserver hkps://keys.openpgp.org --recv-keys 11E9DE8848F2B65222AA75B8D1820DB22A11534E
 SHELL       ["/bin/bash", "-o", "pipefail", "-c"]
-RUN         echo "deb https://weechat.org/ubuntu eoan main" | tee /etc/apt/sources.list.d/weechat.list
+RUN         echo "deb https://weechat.org/ubuntu focal main" | tee /etc/apt/sources.list.d/weechat.list
 
 # install weechat
 RUN         apt-get update && apt-get install -y \
-                weechat-curses==2.7-1-r0 \
-                weechat-plugins==2.7-1-r0 \
-                weechat-python==2.7-1-r0 \
-		weechat-perl==2.7-1-r0 \
-		weechat-php==2.7-1-r0 \
-		weechat-ruby==2.7-1-r0 \
+                weechat-devel-curses \
+                weechat-devel-plugins \
+                weechat-devel-python \
+		weechat-devel-perl \
+		weechat-devel-php \
+		weechat-devel-ruby \
 		python3-potr \
 		&& rm -rf /var/lib/apt/lists/*
 
