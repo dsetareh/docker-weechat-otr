@@ -8,7 +8,7 @@ the last otr-weechat image i can find is 3 years old, and all the ones I tried b
 2. Add location of host `.weechat/` and (optionally) a forwarded relay port to `docker-compose.yml` 
 ```
       ports:
-        - "host relay port:container relay port"
+         - "host relay port:container relay port"
       volumes:
          - "/path/to/host/.weechat:/home/weechat/.weechat"
 
