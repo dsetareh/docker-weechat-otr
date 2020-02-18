@@ -1,12 +1,17 @@
-# docker-weechat-otr
+## docker-weechat-otr
+weechat 2.7 + otr running in docker
+#### why use this
+the last otr-weechat image i can find is 3 years old, and all the ones I tried based off alpine had visual glitches when attaching
 
-weechat + otr support running in docker
-## Running
-
-Add your weechat config path to the docker compose, add or remove ports for script use (relays, url shorteners). To run without nginx-proxy, remove or change network type to host in compose
+#### Running
+1. Clone this repo
+2. Add location of host `.weechat/` and (optionally) a forwarded relay port to `docker-compose.yml` 
 ```
-docker-compose up -d
+      ports:
+        - "host relay port:container relay port"
+      volumes:
+         - "/path/to/host/.weechat:/home/weechat/.weechat"
+
 ```
-
-Can be attached to normally or from within a tmux window on the host without any visual glitches.
-
+3. `docker-compose up -d` 
+4. `docker attach weechat-otr`
