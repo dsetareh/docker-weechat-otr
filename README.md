@@ -1,5 +1,7 @@
-## docker-weechat-otr
+## docker-weechat-otr (ARMHF)
 latest [Weechat](https://weechat.org/) with [otr](https://weechat.org/scripts/source/otr.py.html/), [urlserver](https://weechat.org/scripts/source/urlserver.py.html/), and [relay](https://weechat.org/files/doc/stable/weechat_relay_protocol.en.html) support
+
+### ARMHF build with support for raspi
 
  [DockerHub](https://hub.docker.com/r/dsetareh/docker-weechat-otr) || [GitHub](https://github.com/dsetareh/docker-weechat-otr)
 
