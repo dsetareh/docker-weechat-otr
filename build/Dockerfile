@@ -1,4 +1,4 @@
-# weechat with otr
+# weechat with otr (armhf)
 FROM        ubuntu:20.04
 
 # fix env variables
@@ -28,7 +28,12 @@ ENV         C en_US.UTF-8
 # add weechat repo
 RUN         apt-key adv --keyserver hkps://keys.openpgp.org --recv-keys 11E9DE8848F2B65222AA75B8D1820DB22A11534E
 SHELL       ["/bin/bash", "-o", "pipefail", "-c"]
-RUN         echo "deb https://weechat.org/ubuntu focal main" | tee /etc/apt/sources.list.d/weechat.list
+RUN         echo "deb https://weechat.org/raspbian buster main" | tee /etc/apt/sources.list.d/weechat.list
+
+# add libperl5.28
+RUN         wget https://ftp-master.debian.org/keys/archive-key-10.asc
+RUN         apt-key add archive-key-10.asc
+RUN         echo "deb http://ftp.de.debian.org/debian buster main" | tee /etc/apt/sources.list.d/libperl528.list
 
 # install weechat
 RUN         apt-get update && apt-get install -y \
