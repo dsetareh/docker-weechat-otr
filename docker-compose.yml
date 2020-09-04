@@ -1,6 +1,7 @@
+---
 version: "3"
-services: 
-   weechat: 
+services:
+   weechat:
       build: ./build
       image: docker-weechat-otr
       container_name: weechat-otr

@@ -11,19 +11,12 @@ RUN         apt-get update && apt-get install -y \
                 dirmngr \
                 gpg-agent \
 		locales \
+		locales-all \
                 apt-transport-https \
 		ca-certificates \
 		openssl \
 		wget \
-		&& rm -rf /var/lib/apt/lists/* \
-                && sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen \
-                && dpkg-reconfigure --frontend=noninteractive locales \
-		&& update-locale LANG=en_US.UTF-8 
-
-ENV         LANG en_US.UTF-8
-ENV         LC_ALL en_US.UTF-8
-ENV         LANGUAGE en_US.UTF-8
-ENV         C en_US.UTF-8
+		&& rm -rf /var/lib/apt/lists/* 
 
 # add weechat repo
 RUN         apt-key adv --keyserver hkps://keys.openpgp.org --recv-keys 11E9DE8848F2B65222AA75B8D1820DB22A11534E
@@ -48,5 +41,10 @@ RUN         addgroup --system -gid 1000 weechat \
 
 USER        weechat
 VOLUME      /home/weechat/.weechat
+
+# fix locale
+ENV         LANG en_US.UTF-8
+ENV         LC_ALL en_US.UTF-8
+ENV         LANGUAGE en_US.UTF-8
 
 ENTRYPOINT  [ "weechat-curses" ]
